@@ -166,6 +166,7 @@ function updateCartUI() {
     totalEl.innerText = `$${total.toFixed(2)}`;
     badgeEl.innerText = count;
 }
+
 function toggleCart(forceOpen = false) {
     const drawer = document.getElementById('cartDrawer');
     const overlay = document.getElementById('cartOverlay');
@@ -180,13 +181,14 @@ function toggleCart(forceOpen = false) {
     overlay.style.display = shouldOpen ? 'block' : 'none';
 }
 
+/* MODIFICADO: Ahora checkout llama a la función de WhatsApp */
 function checkout() {
     if (cart.length === 0) {
         alert('El carrito está vacío. Agrega productos antes de finalizar tu compra.');
         return;
     }
 
-    alert('¡Gracias por tu compra! Tu pedido ha sido procesado con éxito.');
+    enviarAWhatsApp(); // Envía los datos al chat
     cart = [];
     saveCartToStorage();
     updateCartUI();
@@ -298,4 +300,24 @@ function closeProductModal() {
         modal.classList.remove('active');
         document.body.style.overflow = 'auto';
     }
+}
+
+/* MODIFICADO: Corrección en formato de número y cálculo de total */
+function enviarAWhatsApp() {
+    const telefono = "584247834312"; // Formato internacional completo sin guiones
+    let mensaje = "¡Hola! Quiero realizar el siguiente pedido:\n\n";
+    let total = 0;
+
+    // Iterar sobre los productos del carrito
+    cart.forEach(item => {
+        const subtotal = item.price * item.quantity;
+        total += subtotal;
+        mensaje += `• ${item.title} (Talla: ${item.size}) x${item.quantity} - $${subtotal.toFixed(2)}\n`;
+    });
+
+    mensaje += `\n*Total a pagar:* $${total.toFixed(2)}`;
+
+    // Abrir enlace de WhatsApp
+    const url = `https://wa.me/${telefono}?text=${encodeURIComponent(mensaje)}`;
+    window.open(url, '_blank');
 }
