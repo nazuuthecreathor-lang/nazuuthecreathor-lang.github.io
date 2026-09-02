@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Camiseta Oversize Black | HURT Streetwear Concept</title>
+    <style>
+        /* ==========================================
+           VARIABLES & PALETA FALLEN ANGELS
+           ========================================== */
+        :root {
+            --lava-red: #E42217;      /* Rojo para acentos principales */
+            --lemon-lime: #A9ED3D;    /* Lima brillante para estados hover y detalles */
+            --fresh-green: #34CD3F;   /* Verde fresco para sub-detalles */
+            --black-bean: #081910;    /* Verde oscuro/Casi negro para fondos principales */
+            
+            --card-bg: #0e2418;       /* Tono verdoso contenedor */
+            --border-color: #173826;  /* Bordes suaves */
+            --text-muted: #839b8e;    /* Texto secundario */
+        }
+
+        /* RESET & ESTILOS BASE */
+        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Arial', sans-serif; }
+        body { background-color: var(--black-bean); color: #ffffff; line-height: 1.6; }
+
+        /* HEADER INFORMATIVO */
+        .header { background: var(--black-bean); border-bottom: 2px solid var(--lava-red); padding: 15px 30px; }
+        .header-container { max-width: 1200px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; }
+        .logo { display: flex; align-items: center; gap: 10px; text-decoration: none; color: #fff; font-weight: 900; font-size: 24px; letter-spacing: 2px; }
+        .logo span { color: var(--lava-red); }
+        .nav-link { color: var(--text-muted); text-decoration: none; font-size: 14px; text-transform: uppercase; letter-spacing: 1px; transition: 0.3s; }
+        .nav-link:hover { color: var(--lemon-lime); }
+
+        /* HERO & SHOWCASE */
+        .pdp-main { max-width: 1200px; margin: 40px auto; padding: 0 20px; }
+        .pdp-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 50px; align-items: center; }
+        
+        .pdp-gallery { position: relative; }
+        .pdp-main-img-box { border: 1px solid var(--border-color); border-radius: 8px; overflow: hidden; background: var(--card-bg); }
+        .pdp-main-img-box img { width: 100%; display: block; filter: contrast(105%); }
+        .pdp-thumbnails { display: flex; gap: 15px; margin-top: 15px; }
+        .thumb { width: 80px; height: 80px; object-fit: cover; border-radius: 6px; cursor: pointer; border: 1px solid var(--border-color); opacity: 0.5; transition: 0.3s; }
+        .thumb.active, .thumb:hover { opacity: 1; border-color: var(--lemon-lime); }
+
+        /* FICHA INFORMATIVA */
+        .pdp-info-box { background: var(--card-bg); padding: 40px; border-radius: 8px; border-left: 4px solid var(--lava-red); }
+        .tag-red { color: var(--lava-red); font-size: 12px; font-weight: bold; letter-spacing: 3px; text-transform: uppercase; }
+        .pdp-title { font-size: 38px; font-weight: 900; text-transform: uppercase; margin: 10px 0; color: #fff; }
+        .pdp-code { font-size: 13px; color: var(--text-muted); margin-bottom: 20px; font-family: monospace; }
+        .pdp-short-desc { color: #ccc; font-size: 16px; margin-bottom: 30px; }
+
+        /* SPECS TECNICAS */
+        .specs-list { list-style: none; border-top: 1px solid var(--border-color); padding-top: 20px; }
+        .specs-list li { display: flex; justify-content: space-between; padding: 8px 0; border-bottom: 1px solid var(--border-color); font-size: 14px; }
+        .specs-list label { color: var(--text-muted); }
+        .specs-list span { color: var(--lemon-lime); font-weight: bold; }
+
+        /* SECCIÓN STORYTELLING Y CONSTRUCCIÓN */
+        .story-section { margin-top: 80px; }
+        .section-title { text-align: center; margin-bottom: 50px; }
+        .section-title h2 { font-size: 32px; font-weight: 900; text-transform: uppercase; letter-spacing: 1px; }
+        .section-title h2 span { color: var(--lava-red); }
+        .section-title p { color: var(--text-muted); font-size: 14px; margin-top: 5px; }
+
+        .craft-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 20px; }
+        .craft-card { background: var(--card-bg); padding: 30px; border-radius: 8px; border: 1px solid var(--border-color); position: relative; transition: 0.3s; }
+        .craft-card:hover { border-color: var(--fresh-green); transform: translateY(-5px); }
+        .craft-num { font-size: 40px; font-weight: 900; color: var(--black-bean); position: absolute; top: 15px; right: 20px; }
+        .craft-card:hover .craft-num { color: var(--lemon-lime); opacity: 0.4; }
+        .craft-card h3 { font-size: 18px; text-transform: uppercase; margin-bottom: 12px; color: #fff; }
+        .craft-card p { font-size: 13px; color: #b0c2b7; line-height: 1.7; }
+
+        /* MANIFIESTO FOOTER */
+        .manifesto-box { background: linear-gradient(135deg, #240705 0%, var(--black-bean) 100%); border: 1px solid var(--lava-red); padding: 50px 20px; text-align: center; border-radius: 8px; margin-top: 60px; }
+        .manifesto-box h3 { font-size: 24px; text-transform: uppercase; letter-spacing: 2px; color: #fff; margin-bottom: 10px; }
+        .manifesto-box p { color: var(--lemon-lime); font-style: italic; font-weight: bold; }
+
+        footer { text-align: center; padding: 30px; border-top: 1px solid var(--border-color); margin-top: 60px; color: var(--text-muted); font-size: 12px; }
+
+        @media (max-width: 768px) {
+            .pdp-grid { grid-template-columns: 1fr; gap: 30px; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- HEADER -->
+    <header class="header">
+        <div class="header-container">
+            <a href="HURT.html" class="logo">
+                Charle Kirk store
+            </a>
+            <a href="#proceso" class="nav-link">Ver Proceso Artesanal</a>
+        </div>
+    </header>
+
+    <!-- MUESTRA PRINCIPAL -->
+    <main class="pdp-main">
+        <section class="pdp-grid">
+            <!-- Galería de imágenes -->
+            <div class="pdp-gallery">
+                <div class="pdp-main-img-box">
+                    <img src="image/89b2fe8f-d953-47ab-aab5-9dfa1ce4a994.jpg" alt="Camiseta Oversize Black Frontal" id="pdpMainImg">
+                </div>
+                <div class="pdp-thumbnails">
+                    <img src="image/89b2fe8f-d953-47ab-aab5-9dfa1ce4a994.jpg" class="thumb active" onclick="changePdpImg(this)">
+                    <img src="image/03630782-336c-4d20-b25e-a9e3257070a8.jpg" class="thumb" onclick="changePdpImg(this)">
+
+                </div>
+            </div>
+
+            <!-- Ficha Técnica Informativa -->
+            <div class="pdp-info-box">
+                <span class="tag-red">Ficha de Diseño // 2026</span>
+                <h1 class="pdp-title">Camiseta Oversize Black</h1>
+                <div class="pdp-code">REF: HRT-240-BLK</div>
+                <p class="pdp-short-desc">
+                    Una exploración en el corte boxy contemporáneo. Esta prenda no busca seguir tendencias de temporada, sino ofrecer una silueta estructural urbana concebida con técnicas pesadas de confección.
+                </p>
+
+                <ul class="specs-list">
+                    <li><label>Ajuste:</label> <span>Oversize Drop Shoulder</span></li>
+                    <li><label>Gramaje:</label> <span>240 GSM Heavyweight</span></li>
+                    <li><label>Composición:</label> <span>100% Algodón Peinado</span></li>
+                    <li><label>Tratamiento:</label> <span>Acid-Wash Reactivo</span></li>
+                    <li><label>Origen:</label> <span>Confección Local</span></li>
+                </ul>
+            </div>
+        </section>
+
+        <!-- SECCIÓN DE PROCESO DE FABRICACIÓN -->
+        <section class="story-section" id="proceso">
+            <div class="section-title">
+                <h2>Proceso de <span>Construcción</span></h2>
+                <p>Detalle técnico sobre la arquitectura de la prenda.</p>
+            </div>
+
+            <div class="craft-grid">
+                <article class="craft-card">
+                    <div class="craft-num">01</div>
+                    <h3>El Textil</h3>
+                    <p>Algodón de 240 GSM seleccionado por su densidad. Proporciona una caída firme sobre el cuerpo, manteniendo la forma estructurada sin colapsar.</p>
+                </article>
+
+                <article class="craft-card">
+                    <div class="craft-num">02</div>
+                    <h3>El Patrón</h3>
+                    <p>Diseño de hombro caído (Dropped Shoulder) con caída recta y cuello reforzado de 2.5 cm que evita la deformación por uso continuo.</p>
+                </article>
+
+                <article class="craft-card">
+                    <div class="craft-num">03</div>
+                    <h3>El Pigmento</h3>
+                    <p>Tinte pigmentado en negro mate con un posterior lavado enzimático suave, logrando tonos desgastados únicos en las costuras.</p>
+                </article>
+
+                <article class="craft-card">
+                    <div class="craft-num">04</div>
+                    <h3>Gráfica</h3>
+                    <p>Estampado en serigrafía de alta densidad mediante tintas a base de agua, garantizando integración total con la fibra del textil.</p>
+                </article>
+            </div>
+
+            <div class="manifesto-box">
+                <h3>URBAN WEAR // ARCHIVE</h3>
+                <p>"Construido bajo los estándares de la calle."</p>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2026 HURT STREETWEAR. Muestra de Portafolio / Archivo Visual.</p>
+    </footer>
+
+    <script>
+        function changePdpImg(element) {
+            document.getElementById('pdpMainImg').src = element.src;
+            document.querySelectorAll('.thumb').forEach(t => t.classList.remove('active'));
+            element.classList.add('active');
+        }
+    </script>
+</body>
+</html>

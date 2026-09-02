@@ -1,0 +1,584 @@
+/* ==========================================
+   VARIABLES & CONFIGURACIÓN DE TEMA
+   ========================================== */
+:root {
+    /* Paleta de colores: Fallen Angels */
+    --lava-red: #E42217;      /* Rojo para botones y elementos de acento */
+    --lemon-lime: #A9ED3D;    /* Lima brillante para estados hover y badges */
+    --fresh-green: #34CD3F;   /* Verde para acentos secundarios */
+    --black-bean: #081910;    /* Verde muy oscuro/Casi negro para fondos */
+
+    /* Mapeo de la paleta a los componentes */
+    --bg-color: var(--black-bean);
+    --card-bg: #0e2418;       /* Tono verdoso ligeramente más claro para tarjetas */
+    --modal-bg: #0a1c13;      /* Tono verdoso oscuro para ventanas modales */
+    --primary-color: #ffffff;
+    --text-color: #f1f1f1;
+    --text-muted: #839b8e;    /* Tono apagado adaptado a la paleta */
+    --accent-color: var(--lava-red);
+    --accent-hover: #c4180e;
+    --border-color: #173826;  /* Bordes verdes oscuros integrados */
+    --transition: all 0.3s ease;
+}
+
+/* ==========================================
+   RESET & ESTILOS BASE
+   ========================================== */
+*, *::before, *::after {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Helvetica Neue', Arial, sans-serif;
+}
+
+body {
+    background: var(--bg-color);
+    color: var(--text-color);
+    line-height: 1.5;
+    overflow-x: hidden;
+}
+
+button {
+    cursor: pointer;
+    border: none;
+    background: transparent;
+    color: inherit;
+    transition: var(--transition);
+}
+
+.header-container, 
+.shop-container, 
+.products-container {
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+/* ==========================================
+   HEADER
+   ========================================== */
+.header {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    background: rgba(8, 25, 16, 0.95);
+    backdrop-filter: blur(8px);
+    border-bottom: 1px solid var(--border-color);
+    z-index: 1000;
+    padding: 15px 5%;
+}
+
+.header-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-weight: 900; 
+    font-size: 24px; 
+    letter-spacing: 2px; 
+    color: var(--primary-color);
+    text-decoration: none;
+    
+}
+
+.logo-image { 
+    height: 30px; 
+}
+
+.cart-icon-btn {
+    border: 1px solid var(--primary-color);
+    color: var(--primary-color);
+    padding: 8px 16px;
+    border-radius: 20px;
+    font-weight: 600;
+}
+
+.cart-icon-btn:hover {
+    background: var(--lemon-lime);
+    border-color: var(--lemon-lime);
+    color: var(--black-bean);
+}
+
+.cart-badge {
+    background: var(--accent-color);
+    color: #fff;
+    padding: 2px 8px;
+    border-radius: 50%;
+    font-size: 0.75rem;
+    margin-left: 6px;
+}
+
+/* ==========================================
+   HERO & BANNER SLIDER
+   ========================================== */
+.hero {
+    padding: 140px 5% 60px;
+    text-align: center;
+    background: linear-gradient(180deg, #0d2719 0%, var(--bg-color) 100%);
+}
+
+.hero h1 { font-size: 2.5rem; letter-spacing: 2px; margin-bottom: 10px; }
+.hero p { color: var(--text-muted); }
+
+.hero-slider {
+    position: relative;
+    width: 100%;
+    height: 80vh;
+    min-height: 450px;
+    margin-top: 60px;
+    overflow: hidden;
+    background: var(--bg-color);
+}
+
+.slider-container { 
+    width: 100%; 
+    height: 100%; 
+    position: relative; 
+}
+
+.slide {
+    position: absolute;
+    inset: 0;
+    opacity: 0;
+    transition: opacity 0.8s ease-in-out;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    will-change: opacity;
+    cursor: pointer; /* Muestra la mano al pasar sobre el banner */
+}
+
+.slide.active { opacity: 1; z-index: 1; }
+
+.slide-img {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    filter: brightness(0.5);
+}
+
+.slide-content {
+    position: relative;
+    z-index: 2;
+    text-align: center;
+    color: #fff;
+    padding: 0 20px;
+    max-width: 800px;
+    animation: fadeInUp 0.8s ease forwards;
+}
+
+.slide-content h1 { 
+    font-size: 3rem; 
+    text-transform: uppercase; 
+    letter-spacing: 2px; 
+    margin-bottom: 15px; 
+}
+
+.slide-content p { 
+    font-size: 1.2rem; 
+    margin-bottom: 25px; 
+    color: #e0e0e0; 
+}
+
+.btn-hero {
+    display: inline-block;
+    padding: 12px 30px;
+    background: var(--accent-color);
+    color: #fff;
+    text-decoration: none;
+    border-radius: 30px;
+    font-weight: bold;
+    font-size: 1rem;
+    transition: var(--transition);
+}
+
+.btn-hero:hover { 
+    background: var(--lemon-lime); 
+    color: var(--black-bean);
+    transform: translateY(-2px); 
+}
+
+.slider-btn {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background: rgba(8, 25, 16, 0.6);
+    color: #fff;
+    font-size: 1.5rem;
+    padding: 15px 18px;
+    border-radius: 50%;
+    z-index: 10;
+}
+
+.slider-btn:hover { background: var(--lava-red); }
+.prev-btn { left: 20px; }
+.next-btn { right: 20px; }
+
+.slider-dots {
+    position: absolute;
+    bottom: 25px;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    gap: 10px;
+    z-index: 10;
+}
+
+.dot {
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.5);
+    cursor: pointer;
+    transition: var(--transition);
+}
+
+.dot.active, .dot:hover {
+    background: var(--lemon-lime);
+    width: 28px;
+    border-radius: 10px;
+}
+
+/* ==========================================
+   PRODUCTOS & GRID
+   ========================================== */
+.shop-container { padding: 0 5%; margin-bottom: 60px; }
+
+.filter-bar {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    margin-bottom: 30px;
+    flex-wrap: wrap;
+}
+
+.filter-btn {
+    color: var(--text-muted);
+    padding: 8px 16px;
+    font-weight: 600;
+    border-bottom: 2px solid transparent;
+}
+
+.filter-btn:hover, 
+.filter-btn.active {
+    color: var(--lemon-lime);
+    border-bottom-color: var(--fresh-green);
+}
+
+.products-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+    gap: 30px;
+    padding: 20px 0;
+}
+
+.product-card {
+    background: var(--card-bg);
+    border: 1px solid var(--border-color);
+    border-radius: 12px;
+    overflow: hidden;
+    transition: var(--transition);
+}
+
+.product-card:hover { 
+    transform: translateY(-5px); 
+    border-color: var(--fresh-green); 
+}
+
+.product-details { padding: 20px; }
+.product-category { font-size: 0.75rem; color: var(--text-muted); text-transform: uppercase; }
+.product-title { font-size: 1.1rem; margin: 6px 0 15px; }
+.product-bottom { display: flex; justify-content: space-between; align-items: center; }
+.product-price { font-size: 1.25rem; font-weight: 700; color: var(--lemon-lime); }
+
+/* Botones de acción general */
+.btn-add-cart, .btn-checkout {
+    background: var(--accent-color);
+    color: #fff;
+    font-weight: 600;
+    border-radius: 6px;
+}
+
+.btn-add-cart { padding: 10px 18px; }
+.btn-checkout { width: 100%; padding: 14px; font-size: 1rem; font-weight: 700; }
+
+.btn-add-cart:hover, .btn-checkout:hover { 
+    background: var(--lemon-lime); 
+    color: var(--black-bean); 
+}
+
+/* Efecto hover e imágenes */
+.product-img-wrapper {
+    position: relative;
+    width: 100%;
+    height: 320px;
+    background: var(--bg-color);
+    overflow: hidden;
+    cursor: pointer;
+}
+
+.product-img-wrapper .product-img {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    object-fit: cover;
+    transition: opacity 0.4s ease-in-out, transform 0.4s ease;
+}
+
+.product-img-wrapper .product-img.secondary,
+.product-img-wrapper:hover .product-img.primary { opacity: 0; }
+
+.product-img-wrapper:hover .product-img.secondary {
+    opacity: 1;
+    transform: scale(1.05);
+}
+
+.quick-view-badge {
+    position: absolute;
+    bottom: 15px;
+    left: 50%;
+    transform: translate(-50%, 20px);
+    background: var(--lemon-lime);
+    color: var(--black-bean);
+    font-weight: bold;
+    padding: 6px 16px;
+    border-radius: 20px;
+    font-size: 0.75rem;
+    opacity: 0;
+    pointer-events: none;
+    z-index: 2;
+    transition: var(--transition);
+}
+
+.product-img-wrapper:hover .quick-view-badge {
+    opacity: 1;
+    transform: translate(-50%, 0);
+}
+
+/* ==========================================
+   CARRITO LATERAL (DRAWER)
+   ========================================== */
+.cart-overlay {
+    display: none;
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.7);
+    z-index: 1500;
+}
+
+.cart-overlay.active { display: block; }
+
+.cart-drawer {
+    position: fixed;
+    top: 0;
+    right: -400px;
+    width: 100%;
+    max-width: 380px;
+    height: 100%;
+    background: var(--card-bg);
+    z-index: 2000;
+    transition: right 0.3s ease;
+    padding: 25px;
+    display: flex;
+    flex-direction: column;
+}
+
+.cart-drawer.open { right: 0; }
+
+.cart-header { 
+    display: flex; 
+    justify-content: space-between; 
+    align-items: center; 
+    border-bottom: 1px solid var(--border-color); 
+    padding-bottom: 15px; 
+}
+
+.close-cart { 
+    color: var(--text-color); 
+    font-size: 1.8rem; 
+}
+
+.cart-items-list { 
+    list-style: none; 
+    flex-grow: 1; 
+    overflow-y: auto; 
+    margin: 20px 0; 
+}
+
+.cart-item { 
+    display: flex; 
+    justify-content: space-between; 
+    align-items: center; 
+    padding: 12px 0; 
+    border-bottom: 1px solid var(--border-color); 
+}
+
+.cart-item-details { display: flex; flex-direction: column; gap: 4px; }
+.cart-item-price { font-size: 0.8rem; color: var(--text-muted); }
+.cart-item-controls { display: flex; align-items: center; gap: 8px; margin-top: 6px; }
+
+.btn-qty {
+    background: var(--black-bean);
+    border: 1px solid var(--border-color);
+    color: #fff;
+    width: 22px;
+    height: 22px;
+    border-radius: 4px;
+    font-weight: bold;
+}
+
+.btn-qty:hover { background: var(--fresh-green); color: var(--black-bean); }
+.qty-count { font-size: 0.85rem; font-weight: bold; }
+.cart-item-subtotal { display: flex; flex-direction: column; align-items: flex-end; justify-content: space-between; height: 100%; }
+.remove-item-btn { color: var(--accent-color); font-size: 0.85rem; }
+
+.cart-summary { border-top: 1px solid var(--border-color); padding-top: 20px; }
+.cart-total { display: flex; justify-content: space-between; font-size: 1.2rem; font-weight: 700; margin-bottom: 15px; }
+
+/* ==========================================
+   MODAL PDP A PANTALLA COMPLETA (FULLSCREEN)
+   ========================================== */
+.product-modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background-color: var(--modal-bg);
+    color: var(--text-color);
+    z-index: 9999;
+    padding: 40px 20px;
+    box-sizing: border-box;
+    overflow-y: auto;
+    
+    transform: translateY(100%);
+    visibility: hidden;
+    transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1), visibility 0.4s;
+    will-change: transform;
+}
+
+.product-modal.active {
+    visibility: visible;
+    transform: translateY(0);
+}
+
+.close-modal {
+    position: fixed;
+    top: 20px;
+    right: 25px;
+    font-size: 1.8rem;
+    background: var(--black-bean);
+    border: 1px solid var(--border-color);
+    color: #fff;
+    border-radius: 50%;
+    width: 45px;
+    height: 45px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    z-index: 10000;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+}
+
+.close-modal:hover { background: var(--accent-color); }
+
+.modal-grid { 
+    display: grid; 
+    grid-template-columns: 1fr; 
+    gap: 30px; 
+    max-width: 1000px;
+    margin: 40px auto 0;
+    align-items: start; 
+}
+
+@media (min-width: 768px) {
+    .modal-grid { grid-template-columns: 1fr 1fr; }
+}
+
+.main-modal-img-container { 
+    width: 100%; 
+    height: 400px; 
+    border-radius: 8px; 
+    overflow: hidden; 
+    background: var(--bg-color); 
+}
+
+.modal-main-img { width: 100%; height: 100%; object-fit: cover; }
+.modal-thumbnails { display: flex; gap: 10px; margin-top: 12px; }
+
+.thumb-img {
+    width: 65px;
+    height: 65px;
+    object-fit: cover;
+    border-radius: 6px;
+    cursor: pointer;
+    border: 2px solid transparent;
+    opacity: 0.6;
+    transition: var(--transition);
+}
+
+.thumb-img.active, .thumb-img:hover { 
+    opacity: 1; 
+    border-color: var(--lemon-lime); 
+}
+
+.modal-info h2 { font-size: 2rem; margin: 5px 0 10px; }
+.modal-price { font-size: 1.6rem; font-weight: bold; color: var(--lemon-lime); margin-bottom: 15px; }
+.modal-description { color: var(--text-muted); font-size: 0.95rem; margin-bottom: 25px; line-height: 1.6; }
+.modal-size-selector { margin-bottom: 25px; }
+.size-options { display: flex; gap: 10px; margin-top: 10px; }
+
+.size-btn {
+    background: var(--black-bean);
+    border: 1px solid var(--border-color);
+    color: #fff;
+    padding: 10px 18px;
+    border-radius: 6px;
+    font-weight: bold;
+}
+
+.size-btn.active, .size-btn:hover {
+    background: var(--lemon-lime);
+    color: var(--black-bean);
+    border-color: var(--lemon-lime);
+}
+
+/* ==========================================
+   FOOTER & ANIMACIONES
+   ========================================== */
+footer {
+    text-align: center;
+    padding: 30px;
+    border-top: 1px solid var(--border-color);
+    color: var(--text-muted);
+    font-size: 0.85rem;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(10px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes fadeInUp {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+/* ==========================================
+   MEDIA QUERIES (DISPOSITIVOS MÓVILES)
+   ========================================== */
+@media (max-width: 768px) {
+    .hero-slider { height: 50vh; min-height: 350px; }
+    .slide-content h1 { font-size: 1.8rem; }
+    .slide-content p { font-size: 0.9rem; }
+    .slider-btn { padding: 10px 12px; font-size: 1rem; }
+    .main-modal-img-container { height: 300px; }
+}

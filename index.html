@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>URBAN WEAR | Nueva Colección 2026</title>
+    <link rel="stylesheet" href="gemini-code-1788319221187.css">
+</head>
+<body>
+    <!-- HEADER -->
+    <header class="header">
+        <div class="header-container">
+            <a href="HURT.html" class="logo">
+                
+             Charle Kirk store  
+            </a>
+            
+            <div class="nav-right">
+                <button class="cart-icon-btn" onclick="toggleCart()" aria-label="Ver carrito">
+                    Carrito <span class="cart-badge" id="cartCount">0</span>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <!-- BANNER SLIDER EN EL INICIO -->
+    <section class="hero-slider">
+        <div class="slider-container" id="sliderContainer">
+            <!-- Diapositiva 1 -->
+            <div class="slide active">
+                <img title="hola 3034'03" src="image/163700b85da5c30b538ca26309156ab8.jpg" alt="Nueva Colección 2026" class="slide-img">
+                <div class="slide-content">
+                    <h1>Nueva Colección 2026</h1>
+                    <p>Estilo urbano, comodidad y las últimas tendencias en moda casual.</p>
+                    <a href="#productsGrid" class="btn-hero">Ver Catálogo</a>
+                </div>
+            </div>
+            <!-- Diapositiva 2 -->
+            <div class="slide">
+                <img title="holssllsdlfd" src="image/7cf122d9e688995574998baca7591b94.jpg" alt="Ofertas Urbanas" class="slide-img">
+                <div class="slide-content">
+                    <h1>Chaquetas & Hoodies</h1>
+                    <p>Protección y diseño para el dia a dia en la ciudad.</p>
+                    <button class="btn-hero" onclick="window.location.href='como-se-hizo.html'">Ver Chaquetas</button>
+                </div>
+            </div>
+            <!-- Diapositiva 3 -->
+            <div class="slide">
+                <img src="image/2fb20e4307f51b3ee5117b6e5829adaa.jpg" alt="Tendencia Streetwear" class="slide-img">
+                <div class="slide-content">
+                    <h1>Estilo Streetwear</h1>
+                    <p>Crea tu outfit ideal con nuestras prendas exclusivas.</p>
+                    <button class="btn-hero" onclick="window.location.href='como-se-hizo2.html'">Ver Pantalones</button>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Controles de navegación -->
+        <button class="slider-btn prev-btn" onclick="changeSlide(-1)" aria-label="Anterior">&#10094;</button>
+        <button class="slider-btn next-btn" onclick="changeSlide(1)" aria-label="Siguiente">&#10095;</button>
+        
+        <!-- Indicadores (Puntos) -->
+        <div class="slider-dots">
+            <span class="dot active" onclick="goToSlide(0)"></span>
+            <span class="dot" onclick="goToSlide(1)"></span>
+            <span class="dot" onclick="goToSlide(2)"></span>
+        </div>
+    </section>
+
+    <!-- HERO SECTION -->
+        <section class="hero">
+        <h1>Tienda En Cerro 4 Perukistan</h1>
+    </section>
+
+    <!-- TIENDA -->
+    <section class="products-section" id="productsGrid">
+        
+        
+        <!-- Barra de Filtros -->
+        <div class="filter-bar">
+            <button class="filter-btn active" onclick="filterProducts('all', event)">Todos</button>
+            <button class="filter-btn" onclick="filterProducts('camisetas', event)">Camisetas</button>
+            <button class="filter-btn" onclick="filterProducts('chaquetas', event)">Chaquetas</button>
+            <button class="filter-btn" onclick="filterProducts('pantalones', event)">Pantalones</button>
+        </div>
+        
+        <!-- Contenedor en Cuadricula Corregido -->
+        <div class="products-container">
+            <!-- Producto 1: Camiseta -->
+            <article class="product-card" data-category="camisetas">
+            <div class="product-img-wrapper" onclick="openProductModal(
+            'Camiseta Oversize Black', 
+            25.00, 
+            'Camisetas', 
+            'Algodón pesado de 240 GSM con corte relajado.', 
+        [
+            'image/Gemini_Generated_Image_12ysn412ysn412ys.jpg', 
+            'image/Gemini_Generated_Image_q375s0q375s0q375.jpg'
+        ]
+    )">
+                    
+                    <img src="image/Gemini_Generated_Image_12ysn412ysn412ys.jpg" alt="Camiseta Frontal" class="product-img primary">
+                    <img src="image/Gemini_Generated_Image_q375s0q375s0q375.jpg" alt="Camiseta Trasera" class="product-img secondary">
+                   
+                </div>
+                <div class="product-details">
+                    <span class="product-category">Camisetas</span>
+                    <h3 class="product-title">Camiseta Oversize Black</h3>
+                        <span class="product-price">$25.00</span>
+                </div>
+            </article>
+
+            <!-- Producto 2: Chaqueta -->
+            <article class="product-card" data-category="chaquetas">
+                <div class="product-img-wrapper" onclick="openProductModal('Chaqueta Denim Urban', 65.00, 'Chaquetas', 'Denim rigido de alta durabilidad con acabado desgastado estilo vintage.', ['image/IMG_20260619_115208.jpg', 'image/Gemini_Generated_Image_75jp1m75jp1m75jp.jpg'])">
+                    <img src="image/IMG_20260619_115208.jpg" alt="Chaqueta Frontal" class="product-img primary">
+                    <img src="image/Gemini_Generated_Image_75jp1m75jp1m75jp.jpg" alt="Chaqueta Detalle" class="product-img secondary">
+                    
+                </div>
+                <div class="product-details">
+                    <span class="product-category">Chaquetas</span>
+                    <h3 class="product-title">Chaqueta Denim Urban</h3>
+                    
+                        <span class="product-price">$65.00</span>
+
+                </div>
+            </article>
+
+            <!-- Producto 3: Pantalón -->
+            <article class="product-card" data-category="pantalones">
+                <div class="product-img-wrapper" onclick="openProductModal('Pantalón Cargo Street', 45.00, 'Pantalones', 'Pantalón tipo cargo con múltiples bolsillos funcionales y ajuste tobillero.', ['image/03630782-336c-4d20-b25e-a9e3257070a8.jpg', 'image/89b2fe8f-d953-47ab-aab5-9dfa1ce4a994.jpg'])">
+                    <img src="image/03630782-336c-4d20-b25e-a9e3257070a8.jpg" alt="Pantalón Cargo" class="product-img primary">
+                    <img src="image/89b2fe8f-d953-47ab-aab5-9dfa1ce4a994.jpg" alt="Pantalón Detalle" class="product-img secondary">
+                    
+                </div>
+                <div class="product-details">
+                    <span class="product-category">Pantalones</span>
+                    <h3 class="product-title">Pantalón Cargo Street</h3>
+                    <div class="product-bottom">
+                        <span class="product-price">$45.00</span>
+                        
+                    </div>
+                </div>
+            </article>
+        </div>
+    </section>
+
+    <!-- CARRITO LATERAL -->
+    <div class="cart-overlay" id="cartOverlay" onclick="toggleCart()"></div>
+    <aside class="cart-drawer" id="cartDrawer" aria-hidden="true">
+        <div class="cart-header">
+            <h2>Tu Carrito</h2>
+            <button class="close-cart" onclick="toggleCart()">&times;</button>
+        </div>
+        <ul class="cart-items-list" id="cartItemsList"></ul>
+        <div class="cart-summary">
+            <div class="cart-total">
+                <span>Total:</span>
+                <span id="cartTotal">$0.00</span>
+            </div>
+            <button class="btn-checkout" onclick="checkout()">Finalizar Compra</button>
+        </div>
+    </aside>
+
+    <!-- FOOTER -->
+    <footer>
+        <p>&copy; 2026 URBAN WEAR Store. Todos los derechos reservados.</p>
+        <span>Envío a todo el país | Múltiples métodos de pago</span>
+    </footer>
+
+
+<!-- REEMPLAZA EL BLOQUE DE TU MODAL CON ESTE -->
+<div class="product-modal" id="productModal" aria-hidden="true">
+    <button class="close-modal" onclick="closeProductModal()">&times;</button>
+    <div class="modal-grid">
+        <div class="modal-gallery">
+            <div class="main-modal-img-container">
+                <img id="modalMainImg" src="" alt="Producto" class="modal-main-img">
+            </div>
+            <!-- Contenedor donde JS inyectará las miniaturas dinámicamente -->
+            <div class="modal-thumbnails" id="modalThumbnails"></div>
+        </div>
+        <div class="modal-info">
+            <span class="product-category" id="modalCategory">Categoría</span>
+            <h2 id="modalTitle">Nombre del Producto</h2>
+            <div class="modal-price" id="modalPrice">$0.00</div>
+            <p class="modal-description" id="modalDescription">Descripción...</p>
+            
+            <div class="modal-size-selector">
+                <label>Talla: </label>
+                <!-- ID agregado para capturar el clic de las tallas -->
+                <div class="size-options" id="modalSizeOptions">
+                    <button class="size-btn">S</button>
+                    <button class="size-btn active">M</button>
+                    <button class="size-btn">L</button>
+                    <button class="size-btn">XL</button>
+                </div>
+            </div>
+            
+            <!-- ID agregado para escuchar el evento de añadir al carrito -->
+            <button class="btn-checkout" id="btnAddToCartModal">Añadir al Carrito</button>
+        </div>
+    </div>
+</div>
+    
+    <!-- MOVER EL SCRIPT AQUÍ AL FINAL -->
+    <script src="gemini-code-1788319195585.js"></script>
+</body>
+</html>
+
+    
+</body>
+</html>
